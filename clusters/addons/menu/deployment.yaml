@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: menu-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: menu-ui
+  template:
+    metadata:
+      labels:
+        app: menu-ui
+    spec:
+      containers:
+      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        name: menu-ui
+        ports:
+        - containerPort: 80

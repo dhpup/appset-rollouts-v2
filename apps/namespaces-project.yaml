@@ -1,0 +1,14 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: namespaces
+spec:
+  sourceRepos:
+    - https://github.com/dhpup/appset-rollouts.git
+  destinations:
+    - namespace: '*'
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: Namespace

@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: many-wf
+spec:
+  generators:
+  - clusters:
+      selector:
+        matchLabels:
+          dev: 'true'
+      values:
+        env: dev
+  - clusters:
+      selector:
+        matchLabels:
+          stage: 'true'
+      values:
+        env: stage
+  - clusters:
+      selector:
+        matchLabels:
+          prod: 'true'
+      values:
+        env: prod
+  template:
+    metadata:
+      name: 'many-wf-{{values.env}}-{{name}}'
+    spec:
+      destination:
+        namespace: 'many-wf-{{values.env}}'
+        server: '{{server}}'
+      source:
+        repoURL: https://github.com/dhpup/demo-workflows-delivery.git
+        targetRevision: 'env/{{values.env}}'
+        path: many-workflows
+      project: 'wf-{{values.env}}'
+      # syncPolicy:
+      #   automated:
+      #     prune: true
