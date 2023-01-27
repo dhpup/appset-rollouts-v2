@@ -19,7 +19,7 @@ spec:
     metadata:
       name: '{{path.basename}}-{{name}}'
       annotations:
-        notifications.argoproj.io/subscribe.slack: test-nikita
+        notifications.argoproj.io/subscribe.slack: test-dan
     spec:
       destination:
         namespace: '{{path.basename}}'
@@ -30,9 +30,6 @@ spec:
         path: '{{path}}'
       project: addons
       syncPolicy:
-        managedNamespaceMetadata:
-          labels:
-            monitored: "true"
         automated:
           prune: true
         syncOptions:
