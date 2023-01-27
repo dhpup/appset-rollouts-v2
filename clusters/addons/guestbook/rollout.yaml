@@ -20,7 +20,7 @@ spec:
         - containerPort: 80
   strategy:
     canary:
-      canaryService: guestbook-ui-preview
+      canaryService: preview-guestbook-ui
       steps:
       - setWeight: 50
       - pause: {}
