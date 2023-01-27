@@ -9,7 +9,7 @@ spec:
   destinations:
     - namespace: guestbook
       server: '*'
-    - namespace: billpay
+    - namespace: argo-rollouts
       server: '*'
     - namespace: hungry-api
       server: '*'
