@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: guestbook-ui
-        image: argoproj/rollouts-demo:blue
+        image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         imagePullPolicy: Always
         ports:
         - name: http
