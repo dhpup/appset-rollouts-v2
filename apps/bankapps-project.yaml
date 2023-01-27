@@ -7,13 +7,13 @@ spec:
   sourceRepos:
     - https://github.com/dhpup/appset-rollouts.git
   destinations:
-    - namespace: guestbook
+    - namespace: creditscore
       server: '*'
     - namespace: argo-rollouts
       server: '*'
-    - namespace: hungry-api
+    - namespace: payments-api
       server: '*'
-    - namespace: menu
+    - namespace: invoices
       server: '*'
   clusterResourceWhitelist:
     - group: '*'
