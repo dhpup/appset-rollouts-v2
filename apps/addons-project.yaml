@@ -1,0 +1,20 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: addons
+spec:
+  sourceRepos:
+    - https://github.com/dhpup/appset-rollouts.git
+  destinations:
+    - namespace: guestbook
+      server: '*'
+    - namespace: billpay
+      server: '*'
+    - namespace: hungry-api
+      server: '*'
+    - namespace: menu
+      server: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
