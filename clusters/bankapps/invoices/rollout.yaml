@@ -1,26 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: guestbook-ui
+  name: invoices-ui
 spec:
   replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: invoices-ui
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: invoices-ui
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+        name: invoices-ui
         ports:
         - containerPort: 80
   strategy:
     canary:
-      canaryService: preview-guestbook-ui
+      canaryService: preview-invoices-ui
       steps:
       - setWeight: 50
       - pause: {}

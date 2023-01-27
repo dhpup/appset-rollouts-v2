@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: addons
+  name: bankapps
 spec:
   generators:
   - matrix:
@@ -9,12 +9,12 @@ spec:
       - clusters:
           selector:
             matchLabels:
-              addons: 'enabled'
+              bankapps: 'enabled'
       - git:
           repoURL: https://github.com/dhpup/appset-rollouts.git
           revision: HEAD
           directories:
-          - path: clusters/addons/*
+          - path: clusters/bankapps/*
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
@@ -28,7 +28,7 @@ spec:
         repoURL: https://github.com/dhpup/appset-rollouts.git
         targetRevision: HEAD
         path: '{{path}}'
-      project: addons
+      project: bankapps
       syncPolicy:
         automated:
           prune: true

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: menu-ui
+  name: payments-api
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: menu-ui
+    app: payments-api

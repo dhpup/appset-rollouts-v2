@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hungry-api
+  name: payments-api
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: hungry-api
+      app: payments-api
   template:
     metadata:
       labels:
-        app: hungry-api
+        app: payments-api
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: hungry-api
+        name: payments-api
         ports:
         - containerPort: 80

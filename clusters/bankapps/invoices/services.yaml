@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: guestbook-ui
+  name: invoices-ui
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: guestbook-ui
+    app: invoices-ui
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: preview-guestbook-ui
+  name: preview-invoices-ui
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: guestbook-ui
+    app: invoices-ui
