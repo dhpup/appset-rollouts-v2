@@ -30,4 +30,4 @@ spec:
       canaryService: guestbook-ui-preview
       steps:
       - setWeight: 50
-      - pause: {duration: 20}
+      - pause: {}
