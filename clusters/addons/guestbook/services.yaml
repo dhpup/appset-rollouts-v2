@@ -9,6 +9,8 @@ spec:
   selector:
     app: guestbook-ui
 ---
+apiVersion: v1
+kind: Service
 metadata:
   name: preview-guestbook-ui
 spec:
