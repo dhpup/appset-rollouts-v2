@@ -6,7 +6,6 @@ spec:
   source:
     repoURL: https://github.com/dhpup/appset-rollouts.git
     targetRevision: HEAD
-    path: clusters/applications
   destination:
     name: in-cluster
     namespace: argocd
