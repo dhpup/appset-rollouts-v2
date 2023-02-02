@@ -11,7 +11,7 @@ spec:
             matchLabels:
               bankapps: 'enabled'
       - git:
-          repoURL: https://github.com/dhpup/appset-rollouts.git
+          repoURL: https://github.com/dhpup/appset-rollouts-v2.git
           revision: livestream
           directories:
           - path: clusters/bankapps/*
@@ -25,7 +25,7 @@ spec:
         namespace: '{{path.basename}}'
         server: '{{server}}'
       source:
-        repoURL: https://github.com/dhpup/appset-rollouts.git
+        repoURL: https://github.com/dhpup/appset-rollouts-v2.git
         targetRevision: livestream
         path: '{{path}}'
       project: bankapps

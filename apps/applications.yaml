@@ -4,7 +4,7 @@ metadata:
   name: apps
 spec:
   source:
-    repoURL: https://github.com/dhpup/appset-rollouts.git
+    repoURL: https://github.com/dhpup/appset-rollouts-v2.git
     targetRevision: livestream
   destination:
     name: in-cluster

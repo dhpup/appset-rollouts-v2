@@ -5,7 +5,7 @@ metadata:
   name: bankapps
 spec:
   sourceRepos:
-    - https://github.com/dhpup/appset-rollouts.git
+    - https://github.com/dhpup/appset-rollouts-v2.git
   destinations:
     - namespace: creditscore
       server: '*'
