@@ -12,7 +12,7 @@ spec:
               bankapps: 'enabled'
       - git:
           repoURL: https://github.com/dhpup/appset-rollouts.git
-          revision: HEAD
+          revision: livestream
           directories:
           - path: clusters/bankapps/*
   template:
@@ -26,7 +26,7 @@ spec:
         server: '{{server}}'
       source:
         repoURL: https://github.com/dhpup/appset-rollouts.git
-        targetRevision: HEAD
+        targetRevision: livestream
         path: '{{path}}'
       project: bankapps
       syncPolicy:
