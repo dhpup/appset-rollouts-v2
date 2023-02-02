@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-services
+spec:
+  generators:
+  - matrix:
+      generators:
+      - clusters:
+          selector:
+            matchLabels:
+              bankapps: 'enabled'
+      - git:
+          repoURL: https://github.com/dhpup/appset-rollouts-v2.git
+          revision: livestream
+          directories:
+          - path: cluster-services/*
+  template:
+    metadata:
+      name: '{{path.basename}}-{{name}}'
+      annotations:
+        notifications.argoproj.io/subscribe.slack: test-dan
+        argocd.argoproj.io/sync-wave: "-1"
+    spec:
+      destination:
+        namespace: '{{path.basename}}'
+        server: '{{server}}'
+      source:
+        repoURL: https://github.com/dhpup/appset-rollouts-v2.git
+        targetRevision: livestream
+        path: '{{path}}'
+      project: bankapps
+      syncPolicy:
+        automated:
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
