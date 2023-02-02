@@ -15,11 +15,27 @@ spec:
           revision: livestream
           directories:
           - path: clusters/bankapps/*
+  strategy:
+    type: RollingSync
+    rollingSync:
+      steps:
+        - matchExpressions:
+          - key: app
+            operator: In
+            values:
+              - argo-rollouts
+        - matchExpressions:
+          - key: app
+            operator: NotIn
+            values:
+              - argo-rollouts
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
       annotations:
         notifications.argoproj.io/subscribe.slack: test-dan
+      labels:
+        app: '{{path.basename}}'
     spec:
       destination:
         namespace: '{{path.basename}}'
